@@ -1,0 +1,17 @@
+[
+  {
+    "task": "Create a JSON configuration object for an AWS Lambda function that processes S3 events, with environment variables for a DynamoDB table name and CloudWatch log group",
+    "format": "json",
+    "solution_criteria": "JSON object must include: valid Lambda function configuration structure, S3 event source mapping, environment variables section with DynamoDB and CloudWatch references, proper IAM role specification, and valid JSON syntax"
+  },
+  {
+    "task": "Write a Python function that takes an AWS S3 bucket name and returns a list of all object keys with a specific file extension (e.g., '.json')",
+    "format": "python",
+    "solution_criteria": "Function must: use boto3 S3 client, accept bucket name and file extension as parameters, filter objects by extension, handle pagination for large buckets, return a list of matching keys, and include basic error handling"
+  },
+  {
+    "task": "Write a regular expression that matches valid AWS IAM role ARNs in the format: arn:aws:iam::123456789012:role/RoleName",
+    "format": "regex",
+    "solution_criteria": "Regex must: match valid AWS account IDs (12 digits), match role names with alphanumeric characters, hyphens, and underscores, not match invalid formats, and be reasonably strict without over-matching"
+  }
+]
