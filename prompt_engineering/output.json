@@ -1,0 +1,54 @@
+[
+  {
+    "output": "```json\n[\n  \"fMRI neuroimaging\",\n  \"cognitive load\",\n  \"prefrontal cortex\",\n  \"anterior cingulate cortex\",\n  \"working memory\",\n  \"trait anxiety\",\n  \"neural activation\",\n  \"behavioral performance\",\n  \"mixed-effects regression models\",\n  \"Bonferroni correction\",\n  \"Bayesian hierarchical modeling\",\n  \"individual differences\",\n  \"neural efficiency\",\n  \"psychological resilience\",\n  \"dopaminergic signaling\",\n  \"mesolimbic pathway\",\n  \"emotion regulation\",\n  \"executive function\",\n  \"multivariate statistical approaches\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "Recent neuroimaging studies employing functional magnetic resonance imaging (fMRI) have demonstrated that cognitive load significantly modulates activity in the prefrontal cortex and anterior cingulate cortex during working memory tasks. Using mixed-effects regression models with Bonferroni correction for multiple comparisons, researchers found that participants exhibiting higher trait anxiety showed reduced activation in these regions despite equivalent behavioral performance. Furthermore, Bayesian hierarchical modeling approaches revealed individual differences in neural efficiency, suggesting that psychological resilience may be mediated by dopaminergic signaling in the mesolimbic pathway. These findings integrate neuroscientific mechanisms with psychological constructs, highlighting the importance of multivariate statistical approaches in understanding the neurobiological substrates of emotion regulation and executive function."
+      },
+      "solution_criteria": [
+        "Extracts topics spanning psychology, neuroscience, and statistics domains",
+        "Identifies both explicit topics (e.g., fMRI, working memory) and implicit conceptual areas (e.g., emotion regulation, individual differences)",
+        "Returns results as a JSON array of strings without additional metadata or explanations"
+      ],
+      "task_description": "\"\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\"\n",
+      "scenario": "Testing with interdisciplinary passage containing mixed topics from psychology, neuroscience, and statistics to verify accurate topic extraction across multiple knowledge domains"
+    },
+    "score": 10,
+    "reasoning": "The solution fully satisfies all mandatory requirements: it returns a valid JSON array of strings containing topics from the passage, each string contains only the topic without extra commentary, and the response contains only the JSON array with no additional text. It also exceeds the secondary criteria by effectively spanning multiple domains (psychology, neuroscience, statistics) and identifying both explicit and implicit topics. The extraction is thorough and accurate, with 19 distinct topics that comprehensively represent the content of the scholarly passage."
+  },
+  {
+    "output": "```json\n[\n  \"Victorian novel\",\n  \"domestic space\",\n  \"class mobility\",\n  \"gender roles\",\n  \"industrialization\",\n  \"architectural description\",\n  \"George Eliot\",\n  \"Charlotte Bront\u00eb\",\n  \"female agency\",\n  \"governess figure\",\n  \"liminal spaces\",\n  \"household\",\n  \"social marginality\",\n  \"economic dependence\",\n  \"Gothic tradition\",\n  \"realist fiction\",\n  \"psychological interiority\",\n  \"consciousness\",\n  \"haunted mansion\",\n  \"repressed desires\",\n  \"social constraints\",\n  \"domestic realism\",\n  \"psychological complexity\",\n  \"Victorian propriety\",\n  \"individual aspiration\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "The Victorian novel's preoccupation with domestic space reflects anxieties about class mobility and gender roles during rapid industrialization. Through the lens of architectural description, authors like George Eliot and Charlotte Bront\u00eb explored how physical environments both constrained and enabled female agency. The governess figure, inhabiting liminal spaces within the household, became a literary trope embodying the period's contradictions\u2014educated yet economically dependent, intimate with family life yet socially marginal. Furthermore, the Gothic tradition's influence on realist fiction manifested in psychological interiority, as writers increasingly depicted consciousness itself as a kind of haunted mansion, populated by repressed desires and social constraints. This convergence of domestic realism and psychological complexity ultimately transformed the novel into a medium for examining the unspoken tensions between Victorian propriety and individual aspiration."
+      },
+      "solution_criteria": [
+        "Extracts explicit topics (Victorian novel, domestic space, industrialization, governess figure, Gothic tradition, psychological interiority)",
+        "Captures nuanced thematic elements (class mobility, gender roles, female agency, social marginality, repressed desires)",
+        "Returns results as a JSON array of strings with no additional formatting or explanatory text"
+      ],
+      "task_description": "\"\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\"\n",
+      "scenario": "Testing with humanities-focused passage on historical and literary themes with implicit and explicit topics to assess whether the extraction captures both obvious subjects and nuanced thematic elements"
+    },
+    "score": 9,
+    "reasoning": "The solution fully satisfies all mandatory requirements: it provides a JSON array of strings containing topics from the article, with only topic names and no extra commentary, and nothing else in the response. It successfully extracts explicit topics and captures nuanced thematic elements as specified in the secondary criteria. While there is minor room for improvement in terms of avoiding redundancy and distinguishing primary topics from supporting metaphors, these are not violations of the stated criteria. The solution demonstrates strong comprehension of the passage and delivers exactly what was requested."
+  },
+  {
+    "output": "```json\n[\n  \"Byzantine Fault Tolerance\",\n  \"Practical Byzantine Fault Tolerance (PBFT)\",\n  \"distributed consensus\",\n  \"cryptographic hash functions\",\n  \"SHA-256\",\n  \"elliptic curve digital signature algorithm (ECDSA)\",\n  \"message authentication\",\n  \"directed acyclic graph (DAG)\",\n  \"transaction ordering\",\n  \"message complexity\",\n  \"Proof-of-Work (PoW)\",\n  \"Proof-of-Stake (PoS)\",\n  \"consensus mechanisms\",\n  \"throughput\",\n  \"asynchronous network conditions\",\n  \"Byzantine agreement\",\n  \"quorum size\",\n  \"faulty replicas\",\n  \"latency measurements\",\n  \"transaction throughput\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "We present a novel approach to distributed consensus using Byzantine Fault Tolerant (BFT) algorithms combined with Practical Byzantine Fault Tolerance (PBFT) mechanisms. Our implementation leverages cryptographic hash functions (SHA-256) and elliptic curve digital signature algorithm (ECDSA) for message authentication. The system employs a directed acyclic graph (DAG) data structure to maintain transaction ordering while achieving O(n\u00b2) message complexity. We compare our approach against Proof-of-Work (PoW) and Proof-of-Stake (PoS) consensus mechanisms, demonstrating superior throughput in asynchronous network conditions. The protocol utilizes Byzantine agreement with a quorum size of 3f+1 nodes, where f represents the maximum number of faulty replicas. Performance evaluation includes latency measurements in milliseconds (ms) and transaction throughput in transactions per second (tps)."
+      },
+      "solution_criteria": [
+        "Extracts all major technical acronyms and methodologies (BFT, PBFT, SHA-256, ECDSA, DAG, PoW, PoS) as distinct topics",
+        "Identifies key algorithmic and cryptographic concepts (Byzantine Fault Tolerance, cryptographic hash functions, digital signature algorithm, directed acyclic graph) as topics",
+        "Includes consensus mechanisms and performance metrics (consensus mechanisms, message complexity, throughput, latency) as separate topics",
+        "Returns output as a valid JSON array of strings with no duplicate entries"
+      ],
+      "task_description": "\"\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\"\n",
+      "scenario": "Testing with densely technical passage from computer science containing acronyms, code-related terms, and mathematical notation to ensure specialized terminology is properly identified as distinct topics"
+    },
+    "score": 9,
+    "reasoning": "The solution fully satisfies all mandatory requirements: it returns a valid JSON array of strings containing topics from the article with no duplicates, each string contains only a topic without extra commentary, and the response contains only the JSON array. It also meets all secondary criteria by extracting major acronyms/methodologies, identifying key concepts, and including consensus mechanisms and performance metrics. While there are minor issues with granularity and some borderline topic selections, these do not violate the stated criteria and represent reasonable interpretive choices for topic extraction from a technical passage."
+  }
+]

@@ -1,0 +1,246 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">9.3 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">100.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with interdisciplinary passage containing mixed topics from psychology, neuroscience, and statistics to verify accurate topic extraction across multiple knowledge domains</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent neuroimaging studies employing functional magnetic resonance imaging (fMRI) have demonstrated that cognitive load significantly modulates activity in the prefrontal cortex and anterior cingulate cortex during working memory tasks. Using mixed-effects regression models with Bonferroni correction for multiple comparisons, researchers found that participants exhibiting higher trait anxiety showed reduced activation in these regions despite equivalent behavioral performance. Furthermore, Bayesian hierarchical modeling approaches revealed individual differences in neural efficiency, suggesting that psychological resilience may be mediated by dopaminergic signaling in the mesolimbic pathway. These findings integrate neuroscientific mechanisms with psychological constructs, highlighting the importance of multivariate statistical approaches in understanding the neurobiological substrates of emotion regulation and executive function.</td>
+                <td class="criteria">• Extracts topics spanning psychology, neuroscience, and statistics domains<br>• Identifies both explicit topics (e.g., fMRI, working memory) and implicit conceptual areas (e.g., emotion regulation, individual differences)<br>• Returns results as a JSON array of strings without additional metadata or explanations</td>
+                <td class="output"><pre>```json
+[
+  "fMRI neuroimaging",
+  "cognitive load",
+  "prefrontal cortex",
+  "anterior cingulate cortex",
+  "working memory",
+  "trait anxiety",
+  "neural activation",
+  "behavioral performance",
+  "mixed-effects regression models",
+  "Bonferroni correction",
+  "Bayesian hierarchical modeling",
+  "individual differences",
+  "neural efficiency",
+  "psychological resilience",
+  "dopaminergic signaling",
+  "mesolimbic pathway",
+  "emotion regulation",
+  "executive function",
+  "multivariate statistical approaches"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">10</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it returns a valid JSON array of strings containing topics from the passage, each string contains only the topic without extra commentary, and the response contains only the JSON array with no additional text. It also exceeds the secondary criteria by effectively spanning multiple domains (psychology, neuroscience, statistics) and identifying both explicit and implicit topics. The extraction is thorough and accurate, with 19 distinct topics that comprehensively represent the content of the scholarly passage.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with humanities-focused passage on historical and literary themes with implicit and explicit topics to assess whether the extraction captures both obvious subjects and nuanced thematic elements</td>
+                <td class="prompt-inputs"><strong>content:</strong> The Victorian novel's preoccupation with domestic space reflects anxieties about class mobility and gender roles during rapid industrialization. Through the lens of architectural description, authors like George Eliot and Charlotte Brontë explored how physical environments both constrained and enabled female agency. The governess figure, inhabiting liminal spaces within the household, became a literary trope embodying the period's contradictions—educated yet economically dependent, intimate with family life yet socially marginal. Furthermore, the Gothic tradition's influence on realist fiction manifested in psychological interiority, as writers increasingly depicted consciousness itself as a kind of haunted mansion, populated by repressed desires and social constraints. This convergence of domestic realism and psychological complexity ultimately transformed the novel into a medium for examining the unspoken tensions between Victorian propriety and individual aspiration.</td>
+                <td class="criteria">• Extracts explicit topics (Victorian novel, domestic space, industrialization, governess figure, Gothic tradition, psychological interiority)<br>• Captures nuanced thematic elements (class mobility, gender roles, female agency, social marginality, repressed desires)<br>• Returns results as a JSON array of strings with no additional formatting or explanatory text</td>
+                <td class="output"><pre>```json
+[
+  "Victorian novel",
+  "domestic space",
+  "class mobility",
+  "gender roles",
+  "industrialization",
+  "architectural description",
+  "George Eliot",
+  "Charlotte Brontë",
+  "female agency",
+  "governess figure",
+  "liminal spaces",
+  "household",
+  "social marginality",
+  "economic dependence",
+  "Gothic tradition",
+  "realist fiction",
+  "psychological interiority",
+  "consciousness",
+  "haunted mansion",
+  "repressed desires",
+  "social constraints",
+  "domestic realism",
+  "psychological complexity",
+  "Victorian propriety",
+  "individual aspiration"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it provides a JSON array of strings containing topics from the article, with only topic names and no extra commentary, and nothing else in the response. It successfully extracts explicit topics and captures nuanced thematic elements as specified in the secondary criteria. While there is minor room for improvement in terms of avoiding redundancy and distinguishing primary topics from supporting metaphors, these are not violations of the stated criteria. The solution demonstrates strong comprehension of the passage and delivers exactly what was requested.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with densely technical passage from computer science containing acronyms, code-related terms, and mathematical notation to ensure specialized terminology is properly identified as distinct topics</td>
+                <td class="prompt-inputs"><strong>content:</strong> We present a novel approach to distributed consensus using Byzantine Fault Tolerant (BFT) algorithms combined with Practical Byzantine Fault Tolerance (PBFT) mechanisms. Our implementation leverages cryptographic hash functions (SHA-256) and elliptic curve digital signature algorithm (ECDSA) for message authentication. The system employs a directed acyclic graph (DAG) data structure to maintain transaction ordering while achieving O(n²) message complexity. We compare our approach against Proof-of-Work (PoW) and Proof-of-Stake (PoS) consensus mechanisms, demonstrating superior throughput in asynchronous network conditions. The protocol utilizes Byzantine agreement with a quorum size of 3f+1 nodes, where f represents the maximum number of faulty replicas. Performance evaluation includes latency measurements in milliseconds (ms) and transaction throughput in transactions per second (tps).</td>
+                <td class="criteria">• Extracts all major technical acronyms and methodologies (BFT, PBFT, SHA-256, ECDSA, DAG, PoW, PoS) as distinct topics<br>• Identifies key algorithmic and cryptographic concepts (Byzantine Fault Tolerance, cryptographic hash functions, digital signature algorithm, directed acyclic graph) as topics<br>• Includes consensus mechanisms and performance metrics (consensus mechanisms, message complexity, throughput, latency) as separate topics<br>• Returns output as a valid JSON array of strings with no duplicate entries</td>
+                <td class="output"><pre>```json
+[
+  "Byzantine Fault Tolerance",
+  "Practical Byzantine Fault Tolerance (PBFT)",
+  "distributed consensus",
+  "cryptographic hash functions",
+  "SHA-256",
+  "elliptic curve digital signature algorithm (ECDSA)",
+  "message authentication",
+  "directed acyclic graph (DAG)",
+  "transaction ordering",
+  "message complexity",
+  "Proof-of-Work (PoW)",
+  "Proof-of-Stake (PoS)",
+  "consensus mechanisms",
+  "throughput",
+  "asynchronous network conditions",
+  "Byzantine agreement",
+  "quorum size",
+  "faulty replicas",
+  "latency measurements",
+  "transaction throughput"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it returns a valid JSON array of strings containing topics from the article with no duplicates, each string contains only a topic without extra commentary, and the response contains only the JSON array. It also meets all secondary criteria by extracting major acronyms/methodologies, identifying key concepts, and including consensus mechanisms and performance metrics. While there are minor issues with granularity and some borderline topic selections, these do not violate the stated criteria and represent reasonable interpretive choices for topic extraction from a technical passage.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
